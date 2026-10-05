@@ -1,0 +1,34 @@
+name: RepoGuardian Bot
+
+on:
+  workflow_dispatch:
+    inputs:
+      report_path:
+        description: Path to a committed ProjectPulse v1 JSON report
+        required: true
+        default: project-pulse.json
+      base_branch:
+        description: Target base branch
+        required: true
+        default: main
+
+permissions:
+  contents: read
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --ignore-scripts --no-audit --no-fund
+      - run: npm run build
+      - name: Generate remediation proposal
+        run: node dist/src/cli.js --report "${{ inputs.report_path }}" --base "${{ inputs.base_branch }}" > repo-guardian-plan.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: repo-guardian-plan
+          path: repo-guardian-plan.json
+          if-no-files-found: error
