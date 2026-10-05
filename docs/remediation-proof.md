@@ -9,3 +9,5 @@ This file demonstrates the operational safety boundary.
 - Human approval remains the final authority.
 
 - This follow-up commit validates the event-driven PRPilot advisory path.
+
+- The second follow-up validates the corrected pull-request event trigger.
