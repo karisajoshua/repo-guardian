@@ -17,5 +17,14 @@
   },
   "engines": {
     "node": ">=22"
-  }
+  },
+  "bin": {
+    "repo-guardian": "./dist/src/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md"
+  ]
 }
