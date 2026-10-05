@@ -62,6 +62,12 @@ npm test
 npm run build
 ```
 
+## Operational remediation proposals
+
+RepoGuardian now converts an approved remediation plan into an execution proposal containing a dedicated `repoguardian/remediation-*` branch name, deterministic low/medium-risk file patches, manual-only high-risk actions, and immutable safety flags requiring a draft review flow with no self-merge capability.
+
+The execution proposal is intentionally separated from the GitHub mutation adapter. This keeps policy decisions testable without credentials and makes repository writes an explicit, auditable integration boundary.
+
 ## Roadmap
 
 The next layer will turn approved low/medium-risk plan items into deterministic file patches on a dedicated `repoguardian/*` branch and open a draft pull request. PRPilot can then become the independent validation/review layer before human merge approval.
