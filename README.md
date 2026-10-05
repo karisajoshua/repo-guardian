@@ -68,9 +68,15 @@ RepoGuardian now converts an approved remediation plan into an execution proposa
 
 The execution proposal is intentionally separated from the GitHub mutation adapter. This keeps policy decisions testable without credentials and makes repository writes an explicit, auditable integration boundary.
 
-## Roadmap
+## v1 status
 
-The next layer will turn approved low/medium-risk plan items into deterministic file patches on a dedicated `repoguardian/*` branch and open a draft pull request. PRPilot can then become the independent validation/review layer before human merge approval.
+RepoGuardian v1 includes ProjectPulse v1 report ingestion, deterministic remediation planning, risk classification, safe patch rendering, a controlled GitHub mutation port, duplicate-PR protection, CLI output, unit and integration tests, and a manual GitHub Actions planning workflow. A live draft-PR proof demonstrates the branch-and-review boundary.
+
+The current GitHub Actions planning workflow intentionally produces an auditable remediation-plan artifact rather than granting repository write permissions. The mutation port is the explicit integration boundary for an approved GitHub App or other least-privilege adapter.
+
+## Next ecosystem layer
+
+PRPilot can act as an independent validation and review layer before human merge approval.
 
 ## License
 
