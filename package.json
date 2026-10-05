@@ -1,6 +1,6 @@
 {
   "name": "repo-guardian",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Policy-driven, human-approved remediation for ProjectPulse repository health findings.",
   "license": "Apache-2.0",
   "type": "module",
