@@ -7,3 +7,5 @@ This file demonstrates the operational safety boundary.
 - Must be reviewed through a draft pull request.
 - RepoGuardian does not merge its own remediation.
 - Human approval remains the final authority.
+
+- This follow-up commit validates the event-driven PRPilot advisory path.
